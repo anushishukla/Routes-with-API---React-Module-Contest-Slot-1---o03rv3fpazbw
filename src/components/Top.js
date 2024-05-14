@@ -1,22 +1,30 @@
-import React, { useState, useEffect } from 'react';
 
-function Top() {
-    const [cryptoArr, setCryptoArr] = useState([]);
+import React, { useEffect, useState } from 'react';
 
-    return (
-        <div className='top-container'>
-            <h1>Top 10 Global Crypto Coins</h1>
-            <div className='display-container'>
+const Top = () => {
+  const [coins, setCoins] = useState([]);
 
-                <div className='coin-container'>
-                    <p className='rank-para'>Rank #rank</p>
-                    <h3 className='coin-symbol'>name (symbol)</h3>
-                    <p className='price-para'>Price: price_usd</p>
-                </div>
+  useEffect(() => {
+    const fetchCoins = async () => {
+      const response = await fetch('https://api.coinlore.net/api/tickers/');
+      const data = await response.json();
+      setCoins(data.data.slice(0, 10));
+    };
 
-            </div>
+    fetchCoins();
+  }, []);
+
+  return (
+    <div className="display-container">
+      {coins.map(coin => (
+        <div key={coin.id} className="coin">
+          <h3>Rank {coin.rank}</h3>
+          <p>{coin.name} ({coin.symbol})</p>
+          <p>Price: ${coin.price_usd}</p>
         </div>
-    )
-}
+      ))}
+    </div>
+  );
+};
 
-export default Top
+export default Top;
