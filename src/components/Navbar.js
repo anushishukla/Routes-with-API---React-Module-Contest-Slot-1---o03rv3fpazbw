@@ -1,20 +1,19 @@
+
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Navbar() {
+const Navbar = () => {
   return (
-    <nav className='nav'>
-        <Link className='site-title'>Site Name</Link>
-        <ul>
-            <li>
-                <Link className='top-ten'>Top 10</Link>
-            </li>
-            <li>
-                <Link className='contact'>Contact</Link>
-            </li>
-        </ul>
+    <nav>
+      <h1><Link to="/">Site Name</Link></h1>
+      <ul>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/top-10">Top 10</Link></li>
+        <li><Link to="/contact">Contact</Link></li>
+      </ul>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
