@@ -1,11 +1,9 @@
-
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <nav>
+    <nav className="nav">
       <h1><Link to="/">Site Name</Link></h1>
       <ul>
         <li><Link to="/">Home</Link></li>
