@@ -10,7 +10,7 @@ const App = () => {
   return (
     <div id="main">
       <Navbar />
-      <div className='container'>
+      <div className="container">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/top-10" element={<Top />} />
@@ -19,6 +19,6 @@ const App = () => {
       </div>
     </div>
   );
-}
+};
 
 export default App;
